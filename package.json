@@ -1,0 +1,32 @@
+{
+  "name": "product",
+  "version": "1.0.0",
+  "description": "product-service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishalKumarSaini/SpringToExpress.git"
+  },
+  "author": "Vishal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VishalKumarSaini/SpringToExpress/issues"
+  },
+  "homepage": "https://github.com/VishalKumarSaini/SpringToExpress#readme",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "ts-node": "^10.7.0",
+    "typeorm": "^0.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "typescript": "^4.6.4"
+  }
+}
