@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VishalKumarSaini/SpringToExpress.git"
+    "url": "git+https://github.com/VishalNineleaps/product.git"
   },
   "author": "Vishal",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VishalKumarSaini/SpringToExpress/issues"
+    "url": "https://github.com/VishalNineleaps/product.git/issues"
   },
-  "homepage": "https://github.com/VishalKumarSaini/SpringToExpress#readme",
+  "homepage": "https://github.com/VishalNineleaps/product.git#readme",
   "dependencies": {
     "@types/express": "^4.17.13",
     "dotenv": "^16.0.0",
