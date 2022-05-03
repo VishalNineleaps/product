@@ -11,7 +11,7 @@ class Index {
     constructor() {
         this.app = express();
         this.configuration();
-        this.productRouter = new ProductRouter;
+        this.productRouter = new ProductRouter();
         this.routes();
     }
 
@@ -29,6 +29,9 @@ class Index {
 
     public routes() {
         this.app.use('/api/product/', this.productRouter.router);
+        this.app.get('/', (req, res) => {
+            res.send('Port is working on the given ')
+        })
     }
 
 }

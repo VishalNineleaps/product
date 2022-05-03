@@ -2,8 +2,6 @@ import { Router } from "express"
 import { AppDataSource } from "../db/dbConfig"
 import { ProductController } from '../controller/ProductController'
 
-
-
 export class ProductRouter {
 
     public router: Router;
