@@ -13,29 +13,3 @@ export const AppDataSource = new DataSource({
     logging: false,
 }
 );
-
-
-
-// import { createConnection } from "typeorm"
-// import { Product } from "src/entities/Product"
-
-//  export const connectDb = async () => {
-//     try {
-//         await createConnection({
-//             type: "mysql",
-//             host: 'localhost',
-//             port: 3306,
-//             username: 'root',
-//             password: 'Password@123',
-//             database: 'productdb',
-//             entities: ['dist/**/*.Product.js'], //[Product],
-//             synchronize: true
-//         })
-//         console.log('Connected to mysql db...')
-//     } catch (error) {
-//         console.log(error)
-//         throw new Error("Unable to connect to db..");
-
-//     }
-// }
-

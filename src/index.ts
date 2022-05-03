@@ -1,8 +1,8 @@
-import express from "express";
+import express from 'express'
 import bodyParser from 'body-parser'
 import { errorHandler } from './middleware/errorMiddleware'
 import { ProductRouter } from './router/ProductRouter'
-require('dotenv').config()
+import dotenv from 'dotenv'
 
 class Index {
     private productRouter: ProductRouter;
@@ -18,10 +18,11 @@ class Index {
     public configuration() {
         this.app.use(errorHandler)
         this.app.use(bodyParser.json())
-        this.app.set('port', process.env.PORT || 9000);
+        this.app.set('port', process.env.SERVER_PORT || 9000);
     }
 
     public start() {
+        dotenv.config();
         this.app.listen(this.app.get('port'), () => {
             console.log(`Listening to port : ${this.app.get('port')}`);
         })
@@ -30,14 +31,14 @@ class Index {
     public routes() {
         this.app.use('/api/product/', this.productRouter.router);
         this.app.get('/', (req, res) => {
-            res.send('Port is working on the given ')
+            res.send('Service is working on the given port')
         })
     }
 
 }
 
-const index = new Index();
-index.start();
+const index = new Index().start();
+
 
 
 
