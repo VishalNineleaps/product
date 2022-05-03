@@ -1,4 +1,5 @@
 import { Product } from "../entity/Product"
+import productSchema from "../middleware/validationSchema"
 import { Request, Response, Router } from "express"
 import { ProductRepository } from "../repository/ProductRepository";
 
@@ -24,12 +25,19 @@ export class ProductController {
     // @desc Create Product
     // @route POST /product/{id}
     public createProduct = async (req: Request, res: Response) => {
+        try {
+            // const validated = await productSchema.validateAsync(req.body)
+            // console.log('validated:::' + validated)
 
-        const product = convertJsonToEntity(req);
+            const product = convertJsonToEntity(req);
 
-        const newProduct = await this.productRepository.createProduct(product);
+            const newProduct = await this.productRepository.createProduct(product);
 
-        res.send(newProduct);
+            res.send(newProduct);
+        } catch (err) {
+            res.send(err)
+        }
+
     }
 
     // @desc Update Product

@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Double, Column, PrimaryColumn } from "typeorm";
 
+
 @Entity('product')
 export class Product {
 

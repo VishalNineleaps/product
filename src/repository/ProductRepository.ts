@@ -1,15 +1,14 @@
-import { AppDataSource} from "../db/dbConfig";
+import { AppDataSource } from "../db/dbConfig";
 import { Product } from "../entity/Product";
 
 export class ProductRepository {
 
-    private productRepository =AppDataSource.getRepository(Product);
+    private productRepository = AppDataSource.getRepository(Product);
 
 
     public getProduct = async (id: number) => {
         try {
-            const product = await this.productRepository.findBy({ id })
-            return product;
+            return await this.productRepository.findBy({ id })
         } catch (err) {
             throw err;
         }
@@ -17,8 +16,7 @@ export class ProductRepository {
 
     public createProduct = async (product: Product) => {
         try {
-            const newproduct = await this.productRepository.save(product)
-            return newproduct;
+            return await this.productRepository.save(product)
         } catch (err) {
             throw err;
         }
@@ -26,8 +24,7 @@ export class ProductRepository {
 
     public updateProduct = async (product: Product, id: number) => {
         try {
-            const updatedProduct = await this.productRepository.update(id, product);
-            return updatedProduct;
+            return await this.productRepository.update(id, product);
         } catch (err) {
             throw err;
         }
@@ -35,8 +32,7 @@ export class ProductRepository {
 
     public deleteProduct = async (id: number) => {
         try {
-            const deletedProduct = await this.productRepository.delete(id)
-            return deletedProduct;
+            return await this.productRepository.delete(id)
         } catch (err) {
             throw err;
         }
