@@ -5,7 +5,7 @@ import { ProductController } from '../controller/ProductController'
 export class ProductRouter {
 
     public router: Router;
-    public productController: ProductController;
+    private productController: ProductController;
 
     constructor() {
         this.router = Router();
@@ -22,7 +22,7 @@ export class ProductRouter {
                 this.router.delete('/:id', this.productController.deleteProduct);
             }).
             catch((error) => {
-                console.log(error)
+                console.error(error)
             })
     }
 }
