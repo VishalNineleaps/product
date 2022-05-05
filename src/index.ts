@@ -1,17 +1,20 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import { errorHandler } from './middleware/errorMiddleware'
+import { errorHandler } from './middleware/ErrorMiddleware'
 import { ProductRouter } from './router/ProductRouter'
+import { UserRouter } from './router/UserRouter'
 import dotenv from 'dotenv'
 
 class Index {
     private productRouter: ProductRouter;
+    private userRouter: UserRouter;
     private app: express.Application;
 
     constructor() {
         this.app = express();
         this.configuration();
         this.productRouter = new ProductRouter();
+        this.userRouter = new UserRouter();
         this.routes();
     }
 
@@ -30,6 +33,7 @@ class Index {
 
     public routes() {
         this.app.use('/api/product/', this.productRouter.router);
+        this.app.use('/api/user/', this.userRouter.router);
         this.app.get('/', (req, res) => {
             res.send('Service is working on the given port')
         })

@@ -1,6 +1,6 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
-export const errorHandler = (err: Error, req: Request, res: Response, any: any) => { //next: to call any further middleware
+export const errorHandler = (err: Error, req: Request, res: Response, any: NextFunction) => { //next: to call any further middleware
     const statusCode = res.statusCode ? res.statusCode : 500
     res.status(statusCode)
 
