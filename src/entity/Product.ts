@@ -1,17 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Double, Column, PrimaryColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Double, Column } from "typeorm";
 
 
 @Entity('product')
 export class Product {
 
-constructor(name:string,price:Double,inventory:number,description:string){
+    constructor(name: string, price: Double, inventory: number, description: string) {
 
-    this.name=name;
-    this.price=price;
-    this.inventory=inventory;
-    this.description=description;
-}
-    
+        this.name = name;
+        this.price = price;
+        this.inventory = inventory;
+        this.description = description;
+    }
+
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -26,13 +26,14 @@ constructor(name:string,price:Double,inventory:number,description:string){
     })
     price: Double;
 
-    @Column({type:'int',
-        default:0
+    @Column({
+        type: 'int',
+        default: 0
     })
     inventory: number;
 
     @Column({
-        default:null
+        default: null
     })
     description: string;
 }

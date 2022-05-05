@@ -1,10 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { EnumType } from "typescript";
 
 
 export enum UserRole {
     ADMIN = 'admin',
-    USER = 'user',
+    USER = 'user'
 }
 
 
@@ -14,7 +13,7 @@ export class User {
     constructor(username: string, password: string, role: UserRole) {
         this.username = username;
         this.password = password;
-        this.user_role=role;
+        this.user_role = role;
     }
 
     @PrimaryGeneratedColumn()
@@ -25,10 +24,10 @@ export class User {
 
     @Column()
     password: string;
-    
+
     @Column({
         type: 'enum',
-        enum:UserRole,
+        enum: UserRole,
         default: UserRole.USER
     })
     user_role: UserRole;

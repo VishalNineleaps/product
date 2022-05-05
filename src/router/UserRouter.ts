@@ -23,7 +23,8 @@ export class UserRouter {
                     this.userController.validateUser)
                 this.router.post('/register', this.userController.registerUser)
                 this.router.post('/login', this.userController.login)
-                this.router.get('/all', this.userController.getUsers)
+                this.router.get('/all', this.authentication.extractJwtToken,
+                    this.userController.getAllUser)
 
             }).catch((error) => {
                 console.error(error);
