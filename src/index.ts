@@ -4,10 +4,12 @@ import { errorHandler } from './middleware/ErrorMiddleware'
 import { ProductRouter } from './router/ProductRouter'
 import { UserRouter } from './router/UserRouter'
 import dotenv from 'dotenv'
-
+import { graphqlHTTP } from 'express-graphql'
+import{ ProductGraphQlController} from './controller/ProductGraphQlController'
 class Index {
     private productRouter: ProductRouter;
     private userRouter: UserRouter;
+    private productGraphController:ProductGraphQlController
     private app: express.Application;
 
     constructor() {
@@ -15,6 +17,7 @@ class Index {
         this.configuration();
         this.productRouter = new ProductRouter();
         this.userRouter = new UserRouter();
+        this.productGraphController = new ProductGraphQlController()
         this.routes();
     }
 
@@ -37,6 +40,10 @@ class Index {
         this.app.get('/', (req, res) => {
             res.send('Service is working on the given port')
         })
+        this.app.use('/api/graphql', graphqlHTTP({
+            graphiql: true,
+            schema: this.productGraphController.productSchemaDefinition
+        }))
     }
 
 }

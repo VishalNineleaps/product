@@ -1,6 +1,5 @@
 {
     "configurations": [
-        
 
         {
             "name": "Launch Chrome",
@@ -14,6 +13,12 @@
             "name": "http://localhost:9000/api/product/1",
             "request": "launch",
             "url": "http://localhost:9000/api/"
+        },
+        {
+            "type": "pwa-chrome",
+            "name": "http://localhost:9000/api/graphql",
+            "request": "launch",
+            "url": "http://localhost:9000/api/graphql"
         }
     ]
 }
